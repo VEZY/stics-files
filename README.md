@@ -5,6 +5,7 @@ This package is used to release STICS-related files according to each version of
 ## Files
 
 - `csv`: CSV files containing the input parameters and output variables of the model
+- `mod`: template files for prof.mod, rap.mod, and var.mod, the files used to define which variables are output by the model
 - `obs`: observation files used to calibrate the model. Different formats are available to perform tests: 
   - `empty`: an empty file 
   - `simple_example`: a simple example with a `usms.xml` file to get the usm name

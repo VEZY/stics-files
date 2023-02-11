@@ -4,10 +4,10 @@
 
    <xsl:output method="text" />
 
-   <xsl:param name="nomsol" select="initialValue"/>
+   <xsl:param name="nomsol" select="initialValue" />
    <xsl:param name="newline" select="'&#xD;&#xA;'" />
-   <xsl:param name="space" select="'&#160;'" />
-   <xsl:variable name="numsol2" select="'&#160;&#160;&#160;&#160;&#160;1&#160;&#160;&#160;'" /> 
+   <xsl:param name="space" select="'&#32;'" />
+   <xsl:variable name="numsol2" select="'&#32;&#32;&#32;&#32;&#32;1&#32;&#32;&#32;'" />
 
    <xsl:template match="/sols">
       <xsl:apply-templates select="sol[attribute::nom=$nomsol]" />
@@ -16,15 +16,19 @@
    <xsl:template match="sol">
       <xsl:value-of select="$numsol2" /> 
       <xsl:value-of select="concat(@nom,$space)" /> 
-      <xsl:apply-templates select="param" />
+      <xsl:apply-templates
+         select="param" />
       <xsl:value-of select="concat($newline,$numsol2)" /> 
-      <xsl:apply-templates select="option" />
+      <xsl:apply-templates
+         select="option" />
       <xsl:value-of select="concat($newline,$numsol2)" /> 
-      <xsl:apply-templates select="option//choix" />
+      <xsl:apply-templates
+         select="option//choix" />
       <!-- <xsl:value-of select="concat($newline,$numsol2)" />  -->
       <xsl:apply-templates select="tableau_entete" />
       <!-- <xsl:value-of select="concat($newline,$numsol2)" />  -->
-      <xsl:apply-templates select="tableau" />
+      <xsl:apply-templates
+         select="tableau" />
    </xsl:template>
 
    <xsl:template match="param">

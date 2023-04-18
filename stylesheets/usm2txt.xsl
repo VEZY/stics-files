@@ -14,7 +14,7 @@
     </xsl:template>
 
     <xsl:template match="usm">
-        <xsl:text>:codesimul:</xsl:text>
+        <xsl:text>:codesimul</xsl:text>
         <xsl:value-of select="$newline" />
         <xsl:if test="codesimul='0'">culture</xsl:if>
         <xsl:if
@@ -75,18 +75,13 @@
             select="concat(fclim2,$newline)" />
         <xsl:text>:nbans</xsl:text>
         <xsl:value-of select="$newline" />
-        <xsl:if
-            test="culturean='0'">1</xsl:if>
-        <xsl:if test="culturean &gt; 0">2</xsl:if>
+        <xsl:if test="culturean='1'">1</xsl:if>
+        <xsl:if test="culturean!='1'">2</xsl:if>
         <xsl:value-of
             select="$newline" />
         <xsl:text>:culturean</xsl:text>
         <xsl:value-of select="$newline" />
-        <xsl:if
-            test="culturean='0'">1</xsl:if>
-        <xsl:if test="culturean &gt; 0">2</xsl:if>
-        <xsl:value-of
-            select="$newline" />
+        <xsl:value-of select="concat(culturean,$newline)" />
         <xsl:apply-templates select="plante[1]" />
         <xsl:apply-templates
             select="plante[2]" />
